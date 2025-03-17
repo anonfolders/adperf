@@ -71,11 +71,40 @@ def separate_by_obs(arr, col):
     np.array_split(arr_temp, np.where(np.diff(arr_temp[:, col]) != 0)[0] + 1)
 
 
+def add_noise_helper(arr, val, dir):
+    # get random point just to enforce the shape
+    output = np.asarray([arr[0]])
+    # iterate over obstacles
+    for obs_id in np.unique(arr[:, -1]):
+        mask = arr[:, -1] == obs_id
+        obs_pts = arr[mask]
+        if len(obs_pts) < 5:
+            continue
+        # get edges
+        rear, front = np.min(obs_pts[:, 0]), np.max(obs_pts[:, 0])
+        left, right = np.min(obs_pts[:, 1]), np.max(obs_pts[:, 1])
+        # print(rear, front, left, right)
+        obs_copy = obs_pts.copy()
+        if dir == PerturbType.NOISE_RIGHT:
+            obs_copy = obs_copy[obs_copy[:, 1].argsort()]
+            obs_copy = obs_copy[:len(obs_pts) // 5, :] 
+            # perturbations
+            obs_copy = obs_copy + [0, val, 0, 0, 0, 0]
+            obs_copy = obs_copy + np.random.normal(size=obs_copy.shape) * 0.05
+        elif dir == PerturbType.NOISE_LEFT:
+            obs_copy = obs_copy[obs_copy[:, 1].argsort()[::-1]]
+            obs_copy = obs_copy[:len(obs_pts) // 5, :] 
+            obs_copy = obs_copy - [0, val, 0, 0, 0, 0]
+            obs_copy = obs_copy + np.random.normal(size=obs_copy.shape) * 0.05
+
+        output = np.concatenate((output, obs_copy), axis=0)
+
+    # sample
+    return output
+
+
 def add_noise(arr, val, dir):
-    if dir == PerturbType.NOISE_RIGHT:
-        return shift_all_obstacles(arr, val, 2)
-    elif dir == PerturbType.NOISE_LEFT:
-        return shift_all_obstacles(arr, val, 3)
+    return add_noise_helper(arr, val, dir)
 
 
 def add_obs(arr, val, dir):

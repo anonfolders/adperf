@@ -17,7 +17,7 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
 1. In the `openpcdet` conda environment
 2. Copy and overwrite contents in [adperf/tools](adperf/tools) to `<root>/OpenPCDet/tools/`
 3. Navigate to OpenPCDet/tools
-4. Run `<root>/OpenPCDet/tools/generate_pcd.ipynb` to generate the perturbation. Set parameters in the 5th and 6th cells target the nuScenes location and specify the test and value.
+4. Run `<root>/OpenPCDet/tools/generate_pcd.ipynb` to generate the perturbation. Set parameters in the 5th (to point to the correct input) and 6th (experiment values) cells target the nuScenes location and specify the test and value. The available values are listed in comment.
 5. Run `bash <root>/OpenPCDet/tools/run_model_nuscenes.sh`
 6. Open `<root>/OpenPCDet/tools/analyze_delays_adperf.ipynb` and `Run all`
 7. The location of the raw data is in `<root>/OpenPCDet/tools/adperf_results.txt` and the computed frames dropped is in `<root>/OpenPCDet/tools/frames_dropped.txt`
