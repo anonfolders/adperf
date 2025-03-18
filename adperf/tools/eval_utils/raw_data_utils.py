@@ -219,8 +219,8 @@ def eval_one_epoch_raw(cfg, args, model, dataloader, epoch_id, logger, dist_test
     delay_path = f'{restore_path}/delays.txt'
 
     with open(delay_path, 'w') as fd:
-        triets_delays = ' '.join(str(i) for i in inference_time_record_adperf[1:])
-        fd.write(triets_delays)
+        adperf_delays = ' '.join(str(i) for i in inference_time_record_adperf[1:])
+        fd.write(adperf_delays)
     logger.info(f'Written delays to {delay_path}')
 
     logger.info(result_str)
