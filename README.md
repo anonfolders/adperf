@@ -160,7 +160,46 @@ OpenPCDet
 
 ## Trajectory Prediction
 
-1. Enter the Trajectron++ environment
-2. Copy [adperf/experiments/nuScenes](adperf/experiments/nuScenes) to `<root>/Trajectron_plus_plus/experiments/nuScenes/`
-3. Copy all files in [`/OpenPCDet/tools/frames_dropped.txt`](adperf/trajectron_input/) to `<root>/Trajectron_plus_plus/experiments/nuScenes/`.
-4.  Open `Trajectron_plus_plus/experiments/nuScenes/run_experiment_perturb_adperf.ipynb` and `Run all`. The ADE & FDE is shown at the bottom.
+1. Clone (Trajectron++)[https://github.com/StanfordASL/Trajectron-plus-plus].
+```
+git clone --recurse-submodules https://github.com/StanfordASL/Trajectron-plus-plus
+```
+
+2. Set up, and enter the Trajectron++ environment per (instructions)[https://github.com/StanfordASL/Trajectron-plus-plus]
+```
+conda create --name trajectron++ python=3.6 -y
+conda activate trajectron++
+cd Trajectron_plus_plus
+pip install -r requirements.txt
+
+```
+
+3. Copy the nuscenes-mini data as above and place them in the experiments/nuScenes directory. Then, download the map expansion pack (v1.1) and copy the contents of the extracted maps folder into the experiments/nuScenes/v1.0-mini/maps folder.
+```
+Trajectron_plus_plus
+├── experiments
+│   ├── nuScenes
+│   │   │── v1.0-mini
+│   │   │   │── maps
+│   │   │   │   │── ... (4 map png files)
+│   │   │   │   │── boston-seaport.json
+│   │   │   │   │── singapore-hollandvillage.json
+│   │   │   │   │── singapore-onenorth.json
+│   │   │   │   │── singapore-queenstown.json
+│   │   │   │── samples
+│   │   │   │── sweeps
+│   │   │   │── v1.0-mini  
+...
+```
+
+4. Process them into a data format the model can work with
+```
+cd experiments/nuScenes
+
+# For the mini nuScenes dataset, use the following
+python process_data.py --data=./v1.0-mini --version="v1.0-mini" --output_path=../processed
+```
+
+5. Set `data_path = Path('../../trajectron_input')` (line 6 in [experiment_helper.py](adperf/experiments/nuScenes/experiment_helper.py)) to the absolute path of [trajectron_input/](adperf/trajectron_input/)
+6. Copy the contents of [adperf/experiments/nuScenes](adperf/experiments/nuScenes) to `Trajectron_plus_plus/experiments/nuScenes/`
+7.  Open `Trajectron_plus_plus/experiments/nuScenes/run_experiment_perturb_adperf.ipynb` and `Run all`. The ADE & FDE is shown at the bottom.

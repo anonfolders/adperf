@@ -1,10 +1,14 @@
 import numpy as np
 from sklearn.metrics import mean_squared_error
+from pathlib import Path
+
+
+data_path = Path('../../trajectron_input')
 
 
 def read_dropped_frames():
     dropped_frames = []
-    with open('frames_dropped.txt', 'r') as fd:
+    with open(data_path / 'frames_dropped.txt', 'r') as fd:
         dropped_frames = fd.read().strip().split(',')
 
     dropped_frames = [int(x) - 1 for x in dropped_frames]
@@ -13,7 +17,7 @@ def read_dropped_frames():
 
 def get_gt_modification():
     modification = 0
-    with open('trajectory_modification.txt', 'r') as fd:
+    with open(data_path / 'trajectory_modification.txt', 'r') as fd:
         mod = fd.read().strip().split(',')
         if 'left' in mod[0]:
             modification = -1 * float(mod[1])
