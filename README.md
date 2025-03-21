@@ -2,7 +2,7 @@
 
 This repository contains the implementation for ADPerf: Investigating and Testing Performance in Autonomous Driving Systems
 
-There are two parts, in folder [measure_model](measure_model), we include the QPME model described in section 4, which can be run using [QPME](https://github.com/DescartesResearch/QPME) which can be downloaded [on GitHub](https://github.com/DescartesResearch/QPME). For the input rate can be varied for the desired results
+There are two parts, in folder [measure_model](measure_model), we include the QPME model described in section 4, which can be run using [QPME](https://github.com/DescartesResearch/QPME) which can be downloaded [on GitHub](https://github.com/DescartesResearch/QPME). The input rate can be varied for the desired results.
 
 In folder [adperf](adperf), we include the implementation for ADPerf as described in section 5. This can be run as follows.
 
