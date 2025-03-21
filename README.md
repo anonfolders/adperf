@@ -2,7 +2,7 @@
 
 This repository contains the implementation for ADPerf: Investigating and Testing Performance in Autonomous Driving Systems
 
-There are two parts, in folder [measure_model](measure_modelopen), we include the QPME model described in section 4, which can be run using [QPME](https://github.com/DescartesResearch/QPME) which can be downloaded [on GitHub](https://github.com/DescartesResearch/QPME). For the input rate can be varied for the desired results
+There are two parts, in folder [measure_model](measure_model), we include the QPME model described in section 4, which can be run using [QPME](https://github.com/DescartesResearch/QPME) which can be downloaded [on GitHub](https://github.com/DescartesResearch/QPME). For the input rate can be varied for the desired results
 
 In folder [adperf](adperf), we include the implementation for ADPerf as described in section 5. This can be run as follows.
 
@@ -113,7 +113,7 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
         ```
 
 
-7. Download models PointPillar-MultiHead and PointPillar-MultiHead from the OpenPCDet model zoo and put them in [`adperf/OpenPCDet/checkpoints`](adperf/OpenPCDet/checkpoints)
+7. Download models PointPillar-MultiHead and PointPillar-MultiHead from the OpenPCDet model zoo and put them in [`adperf/OpenPCDet/checkpoints`](adperf/OpenPCDet/checkpoints) (needs to be created). (Note: these are official links provided on the [OpenPCDet repository](https://github.com/open-mmlab/OpenPCDet/). Please feel free to download from there.)
 
     |              model                                                                         |                                              download                                              | 
     |----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------:|
