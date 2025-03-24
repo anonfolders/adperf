@@ -210,4 +210,4 @@ python process_data.py --data=./v1.0-mini --version="v1.0-mini" --output_path=..
 
 5. Set `data_path = Path('../../trajectron_input')` (line 6 in [experiment_helper.py](adperf/experiments/nuScenes/experiment_helper.py)) to the absolute path of [trajectron_input/](adperf/trajectron_input/)
 6. Copy the contents of [adperf/experiments/nuScenes](adperf/experiments/nuScenes) to `Trajectron_plus_plus/experiments/nuScenes/`
-7.  Open `Trajectron_plus_plus/experiments/nuScenes/run_experiment_perturb_adperf.ipynb` and `Run all`. The ADE & FDE is shown at the bottom. In case of deviation, it can shows as 0 or nan.
+7.  Open `Trajectron_plus_plus/experiments/nuScenes/run_experiment_perturb_adperf.ipynb` and `Run all`. The ADE & FDE is shown at the bottom. In case of no deviation, it can shows as 0 or nan.
