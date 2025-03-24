@@ -72,7 +72,7 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
     ```
 
 6. Download NuScenes-mini from [NuScenes 3D object detection dataset](https://www.nuscenes.org/download) (needs to register an account) according to [nuScenes set up](https://github.com/open-mmlab/OpenPCDet/blob/master/docs/GETTING_STARTED.md).
-    1. Organize the files as follows
+    1. Organize the files as follows:
         ```
         OpenPCDet
         ├── data
@@ -85,18 +85,25 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
         ├── pcdet
         ├── tools
         ```
-    2. Setup panoptic. The folder at this point looks like this
+    2. Setup install the nuScenes-panoptic expandsion, download the dataset from [https://www.nuscenes.org/download](https://www.nuscenes.org/download) (same place as the full data). Unpack the compressed files into same location. The folder at this point should look like this:
         ```
         OpenPCDet
         ├── data
         │   ├── nuscenes
         │   │   │── v1.0-mini
-        │   │   │   │── lidarseg
+        │   │   │   │── lidarseg <- Contains the .bin files
         │   │   │   │── maps
-        │   │   │   │── panoptic
+        │   │   │   │── panoptic <- Contains the *_panoptic.npz files
         │   │   │   │── samples
         │   │   │   │── sweeps
-        │   │   │   │── v1.0-mini  
+        │   │   │   │── v1.0-mini
+        │   │   │   │   │── Usual files (e.g. attribute.json, 
+        |   |   |   |   |                calibrated_sensor.json etc.)
+        │   │   │   │   │── lidarseg.json
+        │   │   │   │   │── panoptic.json
+        │   │   │   │   │── category.json  <- note that the original
+        |   |   |   |   |                     category.json is overwritten. 
+        |   |   |   |   |                     (original < lidarseg < panoptic)
         ├── pcdet
         ├── tools
         ```
