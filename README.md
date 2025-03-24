@@ -204,6 +204,7 @@ Trajectron_plus_plus
 cd experiments/nuScenes
 
 # For the mini nuScenes dataset, use the following
+mkdir ../processed
 python process_data.py --data=./v1.0-mini --version="v1.0-mini" --output_path=../processed
 ```
 
