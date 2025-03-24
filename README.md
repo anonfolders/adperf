@@ -38,7 +38,7 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
     Cuda compilation tools, release 11.6, V11.6.124
     Build cuda_11.6.r11.6/compiler.31057947_0
     ```
-    In this case, it shows that I have `Driver Version: 535.183.01` and `Build cuda_11.6`.
+    In this case, it shows that I have `Driver Version: 535.183.01` and `Build cuda_11.6`. The provided commands are specific to cuda 11.6. If you have a different version installed, please confirm the the libraries are compatible.
 
 2. Set up in a new conda environment as follows:  
     1. Create a new conda environment called `adperf` using python 3.7.
@@ -55,7 +55,7 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
         pip install spconv-cu116
         ```
 
-3. Navigate to the [OpenPCDet](adperf/OpenPCDET) folder.
+3. Navigate to the [OpenPCDet](adperf/OpenPCDet) folder.
     ```
     cd OpenPCDet
     ```
