@@ -8,7 +8,7 @@ In folder [adperf](adperf), we include the implementation for ADPerf as describe
 
 ## Preparations
 
-1. First, confirm that you have an NVIDA GPU with compatible driver and CUDA. We conduct our study on an Ubuntu 20.04.3 LTS system equipped with an AMD Ryzen 16-core CPU, 256 GiB of memory, and an NVIDIA GeForce RTX 3090. 
+1. First, confirm that you have an NVIDA GPU with compatible driver and CUDA. We conduct our study on an Ubuntu 22.04 system equipped with an AMD Ryzen 16-core CPU, 256 GiB of memory, and an NVIDIA GeForce RTX 3090. 
     ```
     nvidia-smi
     ```
